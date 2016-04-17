@@ -3,15 +3,12 @@
 **===========================*/
 
 // VENDOR SASS - None of this is edited
-@import 'vendor/jeet/functions';
-@Import 'vendor/jeet/grid';
-@import 'vendor/jeect/jeet';
-@import 'vendor/jeet/settings';
-@import 'vendor/boilperplate/base';
+@import 'vendor/jeet/jeet';
+@import 'vendor/boilerplate/main';
 
 // OUR SASS - This comes after vendor sass so our code has priority over vendor sass.
 @import 'sass'; //Sass specific stuff, i.e. mixins and variables etc. Doesn't generate any code on its own.
 @import 'base'; //Base elements native to css that don't belong elsewhere, i.e. forms elements, tables, hr, br, etc.
-@import 'tyrpography';
+@import 'typography';
 @import 'layout';
 
