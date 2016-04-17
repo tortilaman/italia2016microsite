@@ -1,39 +1,17 @@
 /*=============================
-**	MAIN TODO
-**===========================*/
-
-
-
-/*=============================
-**	SASS VARIABLES
-**===========================*/
-
-
-/*	COLORS 	*/
-
-/*	TYPE 	*/
-
-*,
-*::after,
-*::before {
-box-sizing: border-box;
-}
-
-//Sizes
-
-//Breakpoints
-
-/*=============================
-**	BASE STYLES / MIXIN
-**===========================*/
-
-
-
-/*=============================
 **	IMPORTS
 **===========================*/
 
-@import 'jeet/functions'
-@Import 'jeet/grid'
-@import 'jeect/jeet'
-@import 'settings'
+// VENDOR SASS - None of this is edited
+@import 'vendor/jeet/functions';
+@Import 'vendor/jeet/grid';
+@import 'vendor/jeect/jeet';
+@import 'vendor/jeet/settings';
+@import 'vendor/boilperplate/base';
+
+// OUR SASS - This comes after vendor sass so our code has priority over vendor sass.
+@import 'sass'; //Sass specific stuff, i.e. mixins and variables etc. Doesn't generate any code on its own.
+@import 'base'; //Base elements native to css that don't belong elsewhere, i.e. forms elements, tables, hr, br, etc.
+@import 'tyrpography';
+@import 'layout';
+
