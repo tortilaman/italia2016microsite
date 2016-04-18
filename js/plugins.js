@@ -23,7 +23,7 @@
 
 //Panelsnap Initialization
 
-var sectOffset = $(window).height() * 0.175;
+var sectOffset = $(window).height() * 0.15;
 
 jQuery(function($) {
 	$('body').panelSnap({

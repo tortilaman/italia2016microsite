@@ -240,15 +240,20 @@ http://www.sanbeiji.com/archives/953 */
 /*=============================
 **	MIXINS
 **===========================*/
+section h2 {
+  color: #6464e1;
+  text-shadow: 1px 1px 0.2px rgba(255, 255, 255, 0.5);
+}
+
 /*
- ad88888ba                                    88
-d8"     "8b                            ,d     ""
-Y8,                                    88
-`Y8aaaaa,     ,adPPYba,   ,adPPYba,  MM88MMM  88   ,adPPYba,   8b,dPPYba,   ,adPPYba,
-  `"""""8b,  a8P_____88  a8"     ""    88     88  a8"     "8a  88P'   `"8a  I8[    ""
-		`8b  8PP"""""""  8b            88     88  8b       d8  88       88   `"Y8ba,
-Y8a     a8P  "8b,   ,aa  "8a,   ,aa    88,    88  "8a,   ,a8"  88       88  aa    ]8I
- "Y88888P"    `"Ybbd8"'   `"Ybbd8"'    "Y888  88   `"YbbdP"'   88       88  `"YbbdP"'
+88888888ba                                        88
+88      "8b                                       88
+88      ,8P                                       88
+88aaaaaa8P'  ,adPPYYba,  8b,dPPYba,    ,adPPYba,  88  ,adPPYba,
+88""""""'    ""     `Y8  88P'   `"8a  a8P_____88  88  I8[    ""
+88           ,adPPPPP88  88       88  8PP"""""""  88   `"Y8ba,
+88           88,    ,88  88       88  "8b,   ,aa  88  aa    ]8I
+88           `"8bbdP"Y8  88       88   `"Ybbd8"'  88  `"YbbdP"'
 */
 body {
   text-align: center;
@@ -257,28 +262,20 @@ body {
 section {
   display: table;
   position: relative;
-  height: 65vh;
+  height: 70vh;
   width: 50em;
   max-width: 50%;
   margin: 0 auto;
   padding: 0 10vmin;
-  /*&:last-of-type:after {
-		content: ' ';
-		position:absolute;
-		bottom: 0;
-		display:block;
-		height: 17.5vh;
-		width: 100%;
-	}*/
 }
 
 section:first-of-type {
-  height: 82.5vh;
+  height: 87.5vh;
   margin-top: 0;
 }
 
 section:last-of-type {
-  border-bottom: 17.5vh solid transparent;
+  border-bottom: 20vh solid transparent;
 }
 
 section > article {
@@ -291,10 +288,20 @@ section > article {
 section > article > h2 {
   position: absolute;
   top: 20%;
-  left: 5%;
+  left: -15%;
   z-index: 3;
 }
 
+/*
+88b           d88                       88  88
+888b         d888                       88  ""
+88`8b       d8'88                       88
+88 `8b     d8' 88   ,adPPYba,   ,adPPYb,88  88  ,adPPYYba,
+88  `8b   d8'  88  a8P_____88  a8"    `Y88  88  ""     `Y8
+88   `8b d8'   88  8PP"""""""  8b       88  88  ,adPPPPP88
+88    `888'    88  "8b,   ,aa  "8a,   ,d88  88  88,    ,88
+88     `8'     88   `"Ybbd8"'   `"8bbdP"Y8  88  `"8bbdP"Y8
+*/
 .video-update {
   position: relative;
 }
@@ -304,8 +311,34 @@ section > article > h2 {
   top: 0;
   left: 0;
   z-index: 1;
+  width: 100%;
+  height: auto;
 }
 
-.video-update img {
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.video-update:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  display: block;
+  box-shadow: inset 0 0 50px 0px rgba(55, 55, 55, 0.5);
   z-index: 2;
 }
