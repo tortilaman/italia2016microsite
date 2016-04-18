@@ -240,3 +240,72 @@ http://www.sanbeiji.com/archives/953 */
 /*=============================
 **	MIXINS
 **===========================*/
+/*
+ ad88888ba                                    88
+d8"     "8b                            ,d     ""
+Y8,                                    88
+`Y8aaaaa,     ,adPPYba,   ,adPPYba,  MM88MMM  88   ,adPPYba,   8b,dPPYba,   ,adPPYba,
+  `"""""8b,  a8P_____88  a8"     ""    88     88  a8"     "8a  88P'   `"8a  I8[    ""
+		`8b  8PP"""""""  8b            88     88  8b       d8  88       88   `"Y8ba,
+Y8a     a8P  "8b,   ,aa  "8a,   ,aa    88,    88  "8a,   ,a8"  88       88  aa    ]8I
+ "Y88888P"    `"Ybbd8"'   `"Ybbd8"'    "Y888  88   `"YbbdP"'   88       88  `"YbbdP"'
+*/
+body {
+  text-align: center;
+}
+
+section {
+  display: table;
+  position: relative;
+  height: 65vh;
+  width: 50em;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0 10vmin;
+  /*&:last-of-type:after {
+		content: ' ';
+		position:absolute;
+		bottom: 0;
+		display:block;
+		height: 17.5vh;
+		width: 100%;
+	}*/
+}
+
+section:first-of-type {
+  height: 82.5vh;
+  margin-top: 0;
+}
+
+section:last-of-type {
+  border-bottom: 17.5vh solid transparent;
+}
+
+section > article {
+  display: table-cell;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+}
+
+section > article > h2 {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  z-index: 3;
+}
+
+.video-update {
+  position: relative;
+}
+
+.video-update img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.video-update img {
+  z-index: 2;
+}

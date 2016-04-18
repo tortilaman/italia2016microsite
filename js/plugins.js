@@ -22,34 +22,15 @@
 }());
 
 //Panelsnap Initialization
-var options = {
-	$menu: false,
-	menuSelector: 'a',
-	panelSelector: '> section',
-	namespace: '.panelSnap',
-	onSnapStart: function(){},
-	onSnapFinish: function(){},
-	onActivate: function(){},
-	directionThreshold: 50,
-	slideSpeed: 200,
-	delay: 0,
-	easing: 'linear',
-	offset: 0,
-	navigation: {
-		keys: {
-			nextKey: false,
-			prevKey: false,
-		},
-		buttons: {
-			$nextButton: false,
-			$prevButton: false,
-		},
-		wrapAround: false
-	}
-};
+
+var sectOffset = $(window).height() * 0.175;
 
 jQuery(function($) {
-	$('body').panelSnap();
+	$('body').panelSnap({
+		delay: 5,
+		directionThreshold: 1,
+		offset: sectOffset
+	});
 });
 
 // Place any jQuery/helper plugins in here.

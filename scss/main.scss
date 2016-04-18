@@ -9,6 +9,6 @@
 // OUR SASS - This comes after vendor sass so our code has priority over vendor sass.
 @import 'sass'; //Sass specific stuff, i.e. mixins and variables etc. Doesn't generate any code on its own.
 @import 'base'; //Base elements native to css that don't belong elsewhere, i.e. forms elements, tables, hr, br, etc.
-@import 'typography';
-@import 'layout';
+@import 'typography'; //Typography
+@import 'layout'; //Layout stuff
 
