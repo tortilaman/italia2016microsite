@@ -21,9 +21,10 @@
 	}
 }());
 
-//Panelsnap Initialization
-
-var sectOffset = $(window).height() * 0.15;
+/*	==============================================
+**	Panelsnap Initialization
+**	============================================*/
+/*var sectOffset = $(window).height() * 0.15;
 
 jQuery(function($) {
 	$('body').panelSnap({
@@ -31,6 +32,56 @@ jQuery(function($) {
 		directionThreshold: 1,
 		offset: sectOffset
 	});
-});
+});*/
 
-// Place any jQuery/helper plugins in here.
+/*	==============================================
+**	Fullpage Initialization
+**	============================================*/
+$(document).ready(function() {
+	$('#fullpage').fullpage({
+		//Navigation
+		/*menu: '#menu',
+		lockAnchors: false,
+		anchors:['firstPage', 'secondPage'],
+		navigation: false,
+		navigationPosition: 'right',
+		navigationTooltips: ['firstSlide', 'secondSlide'],
+		showActiveTooltip: false,
+		slidesNavigation: false,*/
+
+		//Scrolling
+		scrollingSpeed: 800,
+		autoScrolling: false,
+		fitToSection: true,
+		fitToSectionDelay: 300,
+		easing: 'easeInOutCubic',
+		easingcss3: 'ease',
+		loopHorizontal: true,
+		touchSensitivity: 15,
+		normalScrollElementTouchThreshold: 5,
+
+		//Accessibility
+
+		//Design
+		controlArrows: true,
+		verticalCentered: false,
+		resize : true,
+//		paddingTop: '3em',
+//		paddingBottom: '10px',
+//		fixedElements: '#header, .footer',
+		responsiveWidth: 0,
+		responsiveHeight: 0,
+
+		//Custom selectors
+		sectionSelector: 'section',
+//		slideSelector: '.slide',
+
+		//events
+		/*onLeave: function(index, nextIndex, direction){},
+		afterLoad: function(anchorLink, index){},
+		afterRender: function(){},
+		afterResize: function(){},
+		afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+		onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}*/
+	});
+});

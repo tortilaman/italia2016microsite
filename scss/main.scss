@@ -5,6 +5,7 @@
 // VENDOR SASS - None of this is edited
 @import 'vendor/jeet/jeet';
 @import 'vendor/boilerplate/main';
+@import 'vendor/fullpage/jquery.fullpage';
 
 // OUR SASS - This comes after vendor sass so our code has priority over vendor sass.
 @import 'sass'; //Sass specific stuff, i.e. mixins and variables etc. Doesn't generate any code on its own.
