@@ -23,16 +23,46 @@
 
 //Panelsnap Initialization
 
-var sectOffset = $(window).height() * 0.3;
+//Distance from border of section to top of window
+var sectOffset = window.innerHeight * 0.3;
 
 jQuery(function($) {
-	$('body').panelSnap({
+	var options = {
+		$menu: false,
+		menuSelector: 'a',
+		panelSelector: 'section',
+//		namespace: '.panelSnap',
+		onSnapStart: function(){},
+		onSnapFinish: function(){},
+		onActivate: function(){},
+		directionThreshold: 14,
+		slideSpeed: 500,
+		easing: 'easeOutCirc',
+		offset: sectOffset,
+		navigation: {
+			keys: {
+				nextKey: false,
+				prevKey: false,
+			},
+			buttons: {
+				$nextButton: false,
+				$prevButton: false,
+			},
+			wrapAround: false
+		}
+	};
+
+	$('body').panelSnap(options);
+});
+
+/*jQuery(function($) {
+	$('.panel-Snap').panelSnap({
 		delay: 150,
 		directionThreshold: 14,
-		easing: 'easeOutElastic',
+		easing: 'easeOutCirc',
 		offset: sectOffset,
-		slideSpeed: 1000
+		slideSpeed: 500
 	});
-});
+});*/
 
 // Place any jQuery/helper plugins in here.

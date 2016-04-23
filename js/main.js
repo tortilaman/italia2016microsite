@@ -5,7 +5,3 @@ function clickPlaceholder(clicked) {
 	$('img', clicked).css("display", "none");
 	$('iframe', clicked).attr('src', $videoSRC );
 }
-
-$( document ).ready(function() {
-
-});

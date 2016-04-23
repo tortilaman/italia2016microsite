@@ -58,19 +58,19 @@ if ( typeof Object.create !== 'function' ) {
 		var self = this;
 
 		self.container = container;
-		self.$container = $(container);
+		self.$container = $('body');
 
 		self.$eventContainer = self.$container;
 		self.$snapContainer = self.$container;
 
 		if(self.$container.is('body')) {
-		self.$eventContainer = $(document);
-		self.$snapContainer = $(document.documentElement);
+			self.$eventContainer = $(document);
+			self.$snapContainer = $(document.documentElement);
 
-		var ua = navigator.userAgent;
-		if(~ua.indexOf('WebKit')) {
-			self.$snapContainer = $('body');
-		}
+			var ua = navigator.userAgent;
+//			if(~ua.indexOf('WebKit')) {
+				self.$snapContainer = $('body');
+//			}
 		}
 
 		self.options = $.extend(true, {}, $.fn.panelSnap.options, options);
@@ -154,47 +154,50 @@ if ( typeof Object.create !== 'function' ) {
 		e.stopPropagation();
 
 		if(self.isMouseDown) {
-		return;
+			return;
 		}
 
 		if(self.isSnapping) {
-		return;
+			return;
 		}
+
 
 		// Check if enabled or just 1 panel in viewport
 		var panelsInViewPort = self.getPanelsInViewport();
 		if (!self.enabled || panelsInViewPort.length < 2) {
-		$target = panelsInViewPort.eq(0);
-		if(!$target.is(self.getPanel('.active'))) {
-			self.activatePanel($target);
-		}
-		return;
+			$target = panelsInViewPort.eq(0);
+			if(!$target.is(self.getPanel('.active'))) {
+				self.activatePanel($target);
+			}
+			return;
 		}
 
 		var offset = self.$snapContainer.scrollTop();
 		var scrollDifference = offset - self.scrollOffset;
 		var overThreshold = Math.abs(scrollDifference) > self.options.directionThreshold;
 
+		//NOTE: Firefox gets to here...
+
 		var panelNumber;
 		if(scrollDifference > 0) {
-		panelNumber = overThreshold ? 1 : 0;
+			panelNumber = overThreshold ? 1 : 0;
 		} else if(scrollDifference < 0) {
-		panelNumber = overThreshold ? 0 : 1;
+			panelNumber = overThreshold ? 0 : 1;
 		} else {
-		// Nothing to scroll, get out.
-		return;
+			// Nothing to scroll, get out.
+			return;
 		}
 
 		var $target = panelsInViewPort.eq(panelNumber);
 		var maxOffset = self.$container[0].scrollHeight - self.scrollInterval;
 
 		if (offset <= 0 || offset >= maxOffset) {
-		// Only activate, prevent stuttering
-		self.activatePanel($target);
-		// Set scrollOffset to a sane number for next scroll
-		self.scrollOffset = offset <= 0 ? 0 : maxOffset;
+			// Only activate, prevent stuttering
+			self.activatePanel($target);
+			// Set scrollOffset to a sane number for next scroll
+			self.scrollOffset = offset <= 0 ? 0 : maxOffset;
 		} else {
-		self.snapToPanel($target);
+			self.snapToPanel($target);
 		}
 
 	},
@@ -329,6 +332,8 @@ if ( typeof Object.create !== 'function' ) {
 
 		var $target = self.getPanel('.active');
 
+		self.options.offset = window.innerHeight * 0.3;
+
 		self.snapToPanel($target);
 
 	},
@@ -347,8 +352,6 @@ if ( typeof Object.create !== 'function' ) {
 	},
 
 	snapToPanel: function($target) {
-
-		console.log("snapToPanel");
 		var self = this;
 
 		if (!$target.jquery) {
@@ -362,7 +365,7 @@ if ( typeof Object.create !== 'function' ) {
 
 		var scrollTarget = 0;
 		if(self.$container.is('body')) {
-		scrollTarget = $target.offset().top;
+			scrollTarget = $target.offset().top;
 		} else {
 		scrollTarget = self.$snapContainer.scrollTop() + $target.position().top;
 		}
@@ -532,36 +535,36 @@ if ( typeof Object.create !== 'function' ) {
 
 	$.fn[pluginName] = function(options) {
 
-	var args = Array.prototype.slice.call(arguments);
+		var args = Array.prototype.slice.call(arguments);
 
-	return this.each(function() {
+		return this.each(function() {
 
-		var pluginInstance = $.data(this, storageName);
-		if(typeof options === 'object' || options === 'init' || ! options) {
-		if(!pluginInstance) {
-			if(options === 'init') {
-			options = args[1] || {};
+			var pluginInstance = $.data(this, storageName);
+			if(typeof options === 'object' || options === 'init' || ! options) {
+			if(!pluginInstance) {
+				if(options === 'init') {
+				options = args[1] || {};
+				}
+
+				pluginInstance = Object.create(pluginObject).init(options, this);
+				$.data(this, storageName, pluginInstance);
+			} else {
+				$.error('Plugin is already initialized for this object.');
+				return;
+			}
+			} else if(!pluginInstance) {
+			$.error('Plugin is not initialized for this object yet.');
+			return;
+			} else if(pluginInstance[options]) {
+			var method = options;
+			options = args.slice(1);
+			pluginInstance[method].apply(pluginInstance, options);
+			} else {
+			$.error('Method ' +  options + ' does not exist on jQuery.panelSnap.');
+			return;
 			}
 
-			pluginInstance = Object.create(pluginObject).init(options, this);
-			$.data(this, storageName, pluginInstance);
-		} else {
-			$.error('Plugin is already initialized for this object.');
-			return;
-		}
-		} else if(!pluginInstance) {
-		$.error('Plugin is not initialized for this object yet.');
-		return;
-		} else if(pluginInstance[options]) {
-		var method = options;
-		options = args.slice(1);
-		pluginInstance[method].apply(pluginInstance, options);
-		} else {
-		$.error('Method ' +  options + ' does not exist on jQuery.panelSnap.');
-		return;
-		}
-
-	});
+		});
 
 	};
 

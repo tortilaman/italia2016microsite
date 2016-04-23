@@ -9,7 +9,7 @@
 88           `"8bbdP"Y8  88       88   `"Ybbd8"'  88  `"YbbdP"'
 */
 
-body {
+body, #panelSnap {
 	text-align: center;
 	position: absolute;
 	top: 0;
@@ -22,8 +22,8 @@ body {
 }
 
 #introPanel {
-	margin-top: 20vmin !important;
-	padding-top: 20vmin !important;
+//	margin-top: 25vmin;
+	padding-top: 15vmin;
 }
 
 section {
