@@ -23,13 +23,15 @@
 
 //Panelsnap Initialization
 
-var sectOffset = $(window).height() * 0.15;
+var sectOffset = $(window).height() * 0.3;
 
 jQuery(function($) {
 	$('body').panelSnap({
-		delay: 5,
-		directionThreshold: 1,
-		offset: sectOffset
+		delay: 150,
+		directionThreshold: 14,
+		easing: 'easeOutElastic',
+		offset: sectOffset,
+		slideSpeed: 1000
 	});
 });
 

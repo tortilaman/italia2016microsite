@@ -260,25 +260,29 @@ section h2 {
 */
 body {
   text-align: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /*position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	min-height: 100vh;*/
+}
+
+#introPanel {
+  margin-top: 20vmin !important;
+  padding-top: 20vmin !important;
 }
 
 section {
   display: table;
   position: relative;
-  height: 70vh;
+  max-height: 40vmin;
   width: 50em;
-  max-width: 50%;
-  margin: 0 auto;
+  max-width: 75vmin;
+  margin: 25vmin auto;
   padding: 0 10vmin;
-}
-
-section:first-of-type {
-  height: 87.5vh;
-  margin-top: 0;
-}
-
-section:last-of-type {
-  border-bottom: 20vh solid transparent;
 }
 
 section > article {
