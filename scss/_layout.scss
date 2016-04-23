@@ -9,37 +9,46 @@
 88           `"8bbdP"Y8  88       88   `"Ybbd8"'  88  `"YbbdP"'
 */
 
-body {
+body, #panelSnap {
 	text-align: center;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	/*position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	min-height: 100vh;*/
 }
 
-#fullpage > section {
+#introPanel {
+	//	margin-top: 25vmin;
+	padding-top: 15vmin;
+}
+
+section {
 	display: table;
 	position: relative;
-	height: 70vh;
+	max-height: 40vmin;
 	width: 50em;
-	max-width: 50%;
-	margin: 0 auto;
-	padding: 0 10vmin;
+	max-width: 75vmin;
+	//NOTE: It's all about the difference between the margin and padding.
+	margin: -35vmin auto -35vmin auto;
+	padding: 30vmin 10vmin 30vmin 10vmin;
 
 	&:first-of-type {
-		height: 87.5vh;
-		margin-top: 0;
-	}
-
-	&:last-of-type {
-		border-bottom:20vh solid transparent;//TODO: get rid of this hack shit.
+		margin: 10vmin auto -20vmin auto;
 	}
 
 	& > article {
 		display: table-cell;
-		vertical-align: middle;
 		position: relative;
+		vertical-align: middle;
 		text-align: center;
 
-		& > h2 {
+		& > h2 {//Video Topic
 			position: absolute;
-//			top: 20%;
+			top: 20%;
 			left: -15%;
 			z-index: 3;
 		}
@@ -64,9 +73,9 @@ body {
 		position: absolute;
 		top: 0;
 		left: 0;
-		z-index: 1;
 		width: 100%;
 		height: auto;
+		z-index: 2;
 	}
 }
 
@@ -81,7 +90,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 3;
+	z-index: 1;
 }
 
 

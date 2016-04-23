@@ -21,12 +21,16 @@
 	}
 }());
 
-$(document).ready(function(){
+//$(document).ready(function(){
+
+//	var calcOffset = $(window).innerHeight() * 0.1;
+//	var calcOffset = 20vh;
 
 	$('.window').windows({
 		snapping: true,
 		snapSpeed: 500,
 		snapInterval: 500,
+//		snapOffset: calcOffset,
 		onScroll: function(scrollPos){
 			// scrollPos:Number
 		},
@@ -38,4 +42,4 @@ $(document).ready(function(){
 		}
 	})
 
-});
+//});
