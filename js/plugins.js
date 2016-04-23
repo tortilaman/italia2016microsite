@@ -31,6 +31,7 @@
 		snapSpeed: 500,
 		snapInterval: 500,
 //		snapOffset: calcOffset,
+		easingType: 'easeOutExpo',
 		onScroll: function(scrollPos){
 			// scrollPos:Number
 		},
