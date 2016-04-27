@@ -4,4 +4,6 @@ function clickPlaceholder(clicked) {
 	var $videoSRC = $('iframe', clicked).attr('video-src');
 	$('img', clicked).css("display", "none");
 	$('iframe', clicked).attr('src', $videoSRC );
+	$('.playButton', clicked).css("display", "none");
+	$('h2', clicked).css("display", "none");
 }

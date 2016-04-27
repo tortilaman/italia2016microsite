@@ -129,15 +129,20 @@
 					// Desired distance from top of visible window
 //					scrollTo = $visibleWindow.offset().top,
 					completeCalled = false;
+				$visibleWindow.addClass('active');
+				$('section').not($visibleWindow).removeClass('active');
 				// animate to top of visible window
-				$('html:not(:animated),body:not(:animated)').animate({scrollTop: scrollTo }, options.snapSpeed, options.easingType, function(){
-					if(!completeCalled){
-						if(t){clearTimeout(t);}
-						t = null;
-						completeCalled = true;
-						options.onSnapComplete($visibleWindow);
-					}
-				});
+				$('html:not(:animated),body:not(:animated)').animate(
+					{scrollTop: scrollTo },
+					options.snapSpeed,options.easingType,
+					function(){
+						if(!completeCalled){
+							if(t){clearTimeout(t);}
+							t = null;
+							completeCalled = true;
+							options.onSnapComplete($visibleWindow);
+						}
+					});
 			}, options.snapInterval);
 		}
 	};
@@ -151,21 +156,7 @@
 	 */
 	$.fn[pluginName] = function ( options ) {
 
-		/*var touching = false;
-		$w.on('touchstart', function() {
-			touching = true;
-			console.log('touching');
-		})
-		$w.on('touchend', 'touchcancel', function() {
-			touching = false;
-			console.log('notTouching');
-		})
-
-		$w.on('scroll', function() {
-			console.log("New Scrolling Event Handler");
-//			if( !touching) {_onScroll};
-			_onScroll;
-		})*/
+		//NOTE: Do NOT add any touch events, browser compatibility is unclear.
 		$w.scroll(_onScroll);
 		$w.resize(_onResize);
 

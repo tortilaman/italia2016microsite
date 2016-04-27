@@ -1,6 +1,15 @@
-.video-update {
+.logo {
+	position:fixed;
+	top: 10vmin;
+	left: 5vmin;
+	width: 8vmin;
+	height: auto;
+}
+
+.videoUpdate {
+	position: relative;
 	//	opacity: 0.85;
-	&:after {
+	/*&:after {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -11,5 +20,84 @@
 		//		background: rgba( 55, 55, 55, 0.5);
 		box-shadow: inset 0 0 50px 0px rgba(55, 55, 55, 0.5);
 		z-index: 3;
-	}
+	}*/
+}
+
+/*=============================
+**	PLACEHOLDER IMAGE
+**===========================*/
+
+.videoPreview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 2;
+	-webkit-filter: grayscale(65%) blur(2px) sepia(20%);
+	filter: grayscale(65%) blur(2px) sepia(20%);
+	cursor: pointer;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+
+	/*&:hover, &:active, &:focus {
+		-webkit-filter: grayscale(35%) blur(0px) sepia(0%);
+		filter: grayscale(35%) blur(0px) sepia(0%);
+		-webkit-transform:scale(1.1, 1.1);
+		transform:scale(1.1, 1.1);
+	}*/
+}
+
+//Hover for active video, other videos don't have hover.
+.active .playButton:hover + .videoPreview {
+	-webkit-filter: grayscale(0%) blur(0px) sepia(0%);
+	filter: grayscale(35%) blur(0px) sepia(0%);
+	/*-webkit-transform:scale(1.1, 1.1);
+	transform:scale(1.1, 1.1);*/
+}
+
+/*=============================
+**	VIDEO
+**===========================*/
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+/*=============================
+**	VIDEO INFO
+**===========================*/
+
+.playButton {
+	@include play-button(red);
+	display:none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 4;
+}
+
+.videoUpdate h2 {//Video Topic
+	display: none;
+	position: absolute;
+	top: 20%;
+	left: -15%;
+	z-index: 3;
+}
+
+//Show info when slide becomes active
+.active .playButton, .active h2 {
+	display:block !important;
 }

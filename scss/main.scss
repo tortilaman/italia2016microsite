@@ -1,4 +1,10 @@
 /*=============================
+**	TODO:
+**===========================*/
+
+//TODO: Parralax scrolling background images so that each time it goes to a new video, there's a new sketch of photo of the city in the background with a super low opacity.
+
+/*=============================
 **	IMPORTS
 **===========================*/
 
@@ -6,6 +12,7 @@
 @import 'vendor/jeet/jeet';
 @import 'vendor/boilerplate/main';
 @import 'vendor/windows/windows';
+@import 'parallax';
 
 // OUR SASS - This comes after vendor sass so our code has priority over vendor sass.
 @import 'sass'; //Sass specific stuff, i.e. mixins and variables etc. Doesn't generate any code on its own.

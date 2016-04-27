@@ -19,3 +19,33 @@
 /*=============================
 **	MIXINS
 **===========================*/
+
+//Play Button - originally from: http://codepen.io/yowainwright/pen/eJoNwO
+$color-brand-primary: red;
+@mixin play-button($fill: $color-brand-primary) {
+	position: relative;
+	&:after {
+		background-image: url('data:image/svg+xml;utf8,
+			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+				<circle fill="' + $fill + '" cx="514.065" cy="504.152" r="477.545"/>
+				<polygon fill="white" points="383,510.151 383,318.502 548.696,414.327 714.529,510.151 548.765,605.976 383,701.801 "/>
+			</svg>');
+		background-position: center center;
+		background-repeat: no-repeat;
+		content: ' ';
+		display: block;
+		left: 0%;
+		top: 100%;
+		height: 25%;
+		width: 25%;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		z-index: 5;
+		-webkit-transition: all 0.2s;
+				transition: all 0.2s;
+		}
+	&:hover:after {
+		height: 28%;
+		width: 28%;
+	}
+}
