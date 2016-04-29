@@ -1,3 +1,6 @@
+* {
+	box-sizing: border-box;
+}
 /*
 88888888ba                                        88
 88      "8b                                       88
@@ -14,7 +17,7 @@ body, #panelSnap {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	padding-top:20vmin;
+//	padding-top:20vh;
 	/*position: fixed;
 	top: 0;
 	left: 0;
@@ -22,20 +25,47 @@ body, #panelSnap {
 	min-height: 100vh;*/
 }
 
-#introPanel {
+section#introPanel{
 	//	margin-top: 25vmin;
-	padding-top: 55vmin;
+	padding-top:70vh;
+	padding-left: 5vw;
+
+	h1 {
+		width: 50vw;
+		font-family: 'Vollkhorn', serif;
+		color: #838383;
+		font-weight: 700;
+		font-size: 3.5vmin;
+		line-height: 1.2em;
+
+		span {
+			display:block;
+//			font-family: 'leagueGothic', serif;
+			font-family: 'Lato', sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-weight: 300;
+			color:black;
+			font-size: 6vmin;
+			line-height: 1.8em;
+			margin-left: -4.5vw;
+		}
+	}
+
+	article {
+		text-align: left;
+	}
 }
 
 section {
 	display: table;
 	position: relative;
-	max-height: 40vmin;
-	width: 50em;
-	max-width: 75vmin;
+	height: 100vh;
+	width: 60em;
+	max-width: 60vw;
 	//NOTE: It's all about the difference between the margin and padding.
-	margin: -35vmin auto -35vmin auto;
-	padding: 30vmin 10vmin 30vmin 10vmin;
+	margin: -38vh auto;
+	padding: 30vh 10vw;
 
 	&:first-of-type {
 //		margin: -25vmin auto -20vmin auto;
@@ -48,6 +78,15 @@ section {
 		vertical-align: middle;
 		text-align: center;
 	}
+}
+
+.socialIcons img {
+	display: inline-block;
+	width: 3em;
+	height: auto;
+	-webkit-filter: saturate(0%);
+			filter: saturate(0%);
+
 }
 
 

@@ -248,6 +248,58 @@ section h2 {
   text-shadow: 1px 1px 0.2px rgba(255, 255, 255, 0.5);
 }
 
+#introPanel h1 {
+  font-size: 4.5vmin;
+}
+
+@font-face {
+  font-family: 'leagueGothic';
+  src: url("type/leaguegothic-italic-webfont.eot");
+  src: url("type/leaguegothic-italic-webfont.eot?#iefix") format("embedded-opentype"), url("type/leaguegothic-italic-webfont.woff") format("woff"), url("type/leaguegothic-italic-webfont.ttf") format("truetype"), url("type/leaguegothic-italic-webfont.svg#league_gothic_italicregular") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'leagueGothic';
+  src: url("/type/leaguegothic-italic-webfont.eot");
+  src: url("/type/leaguegothic-italic-webfont.eot?#iefix") format("embedded-opentype"), url("/type/leaguegothic-italic-webfont.woff") format("woff"), url("/type/leaguegothic-italic-webfont.ttf") format("truetype"), url("/type/leaguegothic-italic-webfont.svg#league_gothic_italicregular") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'leagueGothic';
+  src: url("../type/leaguegothic-regular-webfont.eot");
+  src: url("../type/leaguegothic-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../type/leaguegothic-regular-webfont.woff") format("woff"), url("../type/leaguegothic-regular-webfont.ttf") format("truetype"), url("../type/leaguegothic-regular-webfont.svg#league_gothicregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Condensed */
+@font-face {
+  font-family: 'leagueGothicCondensed';
+  src: url("leaguegothic-condensed-regular-webfont.eot");
+  src: url("leaguegothic-condensed-regular-webfont.eot?#iefix") format("embedded-opentype"), url("leaguegothic-condensed-regular-webfont.woff") format("woff"), url("leaguegothic-condensed-regular-webfont.ttf") format("truetype"), url("leaguegothic-condensed-regular-webfont.svg#league_gothic_condensed-Rg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Condensed Italic */
+@font-face {
+  font-family: 'leagueGothicCondensed';
+  src: url("type/leaguegothic-condensed-italic-webfont.eot");
+  src: url("type/leaguegothic-condensed-italic-webfont.eot?#iefix") format("embedded-opentype"), url("type/leaguegothic-condensed-italic-webfont.woff") format("woff"), url("type/leaguegothic-condensed-italic-webfont.ttf") format("truetype"), url("type/leaguegothic-condensed-italic-webfont.svg#league_gothic_condensed_itaRg") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 /*
 88888888ba                                        88
 88      "8b                                       88
@@ -263,7 +315,6 @@ body, #panelSnap {
   position: absolute;
   top: 0;
   width: 100%;
-  padding-top: 20vmin;
   /*position: fixed;
 	top: 0;
 	left: 0;
@@ -271,18 +322,44 @@ body, #panelSnap {
 	min-height: 100vh;*/
 }
 
-#introPanel {
-  padding-top: 55vmin;
+section#introPanel {
+  padding-top: 70vh;
+  padding-left: 5vw;
+}
+
+section#introPanel h1 {
+  width: 50vw;
+  font-family: 'Vollkhorn', serif;
+  color: #838383;
+  font-weight: 700;
+  font-size: 3.5vmin;
+  line-height: 1.2em;
+}
+
+section#introPanel h1 span {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: black;
+  font-size: 6vmin;
+  line-height: 1.8em;
+  margin-left: -4.5vw;
+}
+
+section#introPanel article {
+  text-align: left;
 }
 
 section {
   display: table;
   position: relative;
-  max-height: 40vmin;
-  width: 50em;
-  max-width: 75vmin;
-  margin: -35vmin auto -35vmin auto;
-  padding: 30vmin 10vmin 30vmin 10vmin;
+  height: 100vh;
+  width: 60em;
+  max-width: 60vw;
+  margin: -38vh auto;
+  padding: 30vh 10vw;
 }
 
 section > article {
@@ -290,6 +367,14 @@ section > article {
   position: relative;
   vertical-align: middle;
   text-align: center;
+}
+
+.socialIcons img {
+  display: inline-block;
+  width: 3em;
+  height: auto;
+  -webkit-filter: saturate(0%);
+  filter: saturate(0%);
 }
 
 .logo {
@@ -410,5 +495,5 @@ section > article {
 }
 
 .active .playButton, .active h2 {
-  display: block !important;
+  display: block;
 }
